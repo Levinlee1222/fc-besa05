@@ -41,7 +41,21 @@ Vor öffentlichem Einsatz Logo-/Bildnutzung mit dem Verein abstimmen sowie das I
 
 ## Betrieb
 
-Der Container läuft als Benutzer `node`, mit schreibgeschütztem Dateisystem und ohne Linux-Capabilities. Healthcheck prüft HTTP. Für öffentliche Bereitstellung TLS über einen vorgeschalteten Reverse Proxy konfigurieren. Ohne Datenbank und Buildschritt.
+Der Container läuft als Benutzer `node`, mit schreibgeschütztem Dateisystem, ohne Linux-Capabilities, mit Init-Prozess sowie Speicher-, CPU- und Log-Limits. Der Docker-Build führt `npm run check` und `npm test` aus und bricht bei Fehlern ab. Healthcheck: `GET /healthz`.
+
+Der Server lädt alle Dateien beim Start in den Speicher und liefert Text vorkomprimiert (Brotli/Gzip) mit ETag aus. HTML, CSS und JS werden bei jedem Aufruf revalidiert, Bilder und Schriften sieben Tage gecacht. Sicherheits-Header inkl. Content-Security-Policy, nur `GET`/`HEAD`, eigene 404-Seite, sauberes Beenden bei `SIGTERM`.
+
+Für öffentliche Bereitstellung TLS über einen vorgeschalteten Reverse Proxy konfigurieren (dort auch HSTS setzen). Mit fester Domain zusätzlich `og:image` als absolute URL und einen `<link rel="canonical">` eintragen.
+
+## Assets neu erzeugen
+
+Wappen-Varianten (mit weißer Kontur für dunkle und rote Flächen), Favicons, Social-Media-Vorschau, WebP-/JPEG-Bildgrößen und WOFF2-Schriften erzeugt `tools/build_assets.py` aus `logo.png`, `match-night.jpg`, `stadium.jpg` und den TTF-Schriften. Diese Quelldateien liegen in der Git-Historie (Commit `d137d4f`) und müssen zum Neuerzeugen nach `public/assets` gelegt werden:
+
+```sh
+docker run --rm -v "$PWD/public/assets:/assets:ro" -v "$PWD/tools:/tools:ro" -v "$PWD/public/assets:/out" python:3.12-slim sh -c "pip install -q pillow fonttools brotli && python -I /tools/build_assets.py"
+```
+
+Das öffentlich verfügbare Wappen ist nur 150 × 150 Pixel groß. Für gestochen scharfe Darstellung auf hochauflösenden Displays die Originaldatei (SVG oder mindestens 600 Pixel) beim Verein anfragen und als `logo.png` ersetzen.
 
 
 ## Frontend

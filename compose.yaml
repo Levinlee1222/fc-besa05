@@ -1,11 +1,22 @@
 services:
   website:
     build: .
+    image: fc-besa-05:latest
     ports:
       - "${PORT:-8080}:8080"
     restart: unless-stopped
+    init: true
     read_only: true
     cap_drop:
       - ALL
     security_opt:
       - no-new-privileges:true
+    mem_limit: 128m
+    cpus: 0.5
+    pids_limit: 64
+    stop_grace_period: 10s
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "3"

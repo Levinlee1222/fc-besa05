@@ -11,7 +11,7 @@ function render(filter='all'){
  return `<article class="fixture"><time datetime="${date}"><strong>${dateFormat.format(d)}</strong><span>${weekday.format(d)} · ${timeFormat.format(d)} Uhr</span></time><div class="teams"><span class="${atHome?'besa':''}">${home}</span><small>vs.</small><span class="${!atHome?'besa':''}">${away}</span></div><span class="venue ${atHome?'is-home':''}">${atHome?'Heim':'Auswärts'}</span><a class="fixture-link" href="${official}" target="_blank" rel="noopener" aria-label="${home} gegen ${away} auf FUSSBALL.DE prüfen">${arrow}</a></article>`;
  }).join('')||'<p>Für diese Auswahl sind keine Termine hinterlegt.</p>';
 }
-function crest(team){return team==='FC Besa'?'<img src="/assets/logo.png" width="64" height="64" alt="Wappen FC Besa 05">':'<span class="opponent-mark" aria-hidden="true">'+team.split(' ').filter(w=>w.length>2).slice(0,2).map(w=>w[0]).join('')+'</span>';}
+function crest(team){return team==='FC Besa'?'<img src="/assets/logo-128.webp" width="64" height="64" alt="Wappen FC Besa 05">':'<span class="opponent-mark" aria-hidden="true">'+team.split(' ').filter(w=>w.length>2).slice(0,2).map(w=>w[0]).join('')+'</span>';}
 function renderNextGame(){
  const game=nextGame(games),container=document.querySelector('#next-game');
  if(!game){container.innerHTML='<h2>Das nächste Spiel folgt.</h2><p>Aktuelle Termine findest du auf FUSSBALL.DE.</p><a class="text-link" href="'+official+'" target="_blank" rel="noopener">Zum Spielplan '+arrow+'</a>';return;}
