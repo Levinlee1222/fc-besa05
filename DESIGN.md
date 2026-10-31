@@ -1,0 +1,2 @@
+# Gestaltung
+Rot und Schwarz aus den recherchierten Vereinsfarben. Helles Papier als gut lesbare Grundfläche, große Fußballfotografie als ausdrücklich bezeichnetes Symbolbild, rote Vereinsfläche mit echtem Wappen. Manrope lokal, klare Spielzeilen mit tabellarischen Uhrzeiten. Mobile Navigation, Tastaturfokus und reduzierte Bewegung berücksichtigt. Keine erfundenen Spieler, Sponsoren, Ergebnisse oder Kontaktdaten.
