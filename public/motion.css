@@ -1,0 +1,70 @@
+@font-face{font-family:"Barlow Condensed";src:url("/assets/barlow-condensed-700.ttf") format("truetype");font-weight:700;font-display:swap}
+/* Valencia-inspired composition: overlaid navigation, condensed type and a filmic opener. */
+:root{--red:#d91e38;--red-dark:#b9182e;--focal-duration:800ms}
+.header-trigger{position:absolute;top:80px;width:1px;height:1px;pointer-events:none}
+h1,h2,.team-word{font-family:'Barlow Condensed',Manrope,sans-serif;font-weight:700;letter-spacing:-.02em}
+.topbar{position:absolute;top:0;left:0;right:0;z-index:31;min-height:40px;background:transparent;color:#fff;border-bottom:1px solid #ffffff24;font-size:12px;letter-spacing:.08em}
+.topbar b{margin:0 8px;color:#ff8b9a}.topbar a{letter-spacing:0}
+.header{position:fixed;top:40px;left:0;width:100%;height:96px;background:transparent;color:#fff;border-bottom:1px solid #ffffff24;transition:transform 500ms var(--motion),background-color 300ms var(--motion),border-color 300ms var(--motion)}
+.header .brand b{color:#ff7d90}.header nav{font-family:'Barlow Condensed',Manrope,sans-serif;font-size:20px;text-transform:uppercase;letter-spacing:.02em;gap:32px}.header .nav-cta{font-size:16px;border-radius:999px;padding:12px 24px}.header .nav-cta svg{width:20px;height:20px}
+.site-scrolled .header{transform:translateY(-40px);background:var(--ink);border-bottom-color:#ffffff18}
+.header a:hover{color:#ff8b9a}.header .nav-cta:hover{color:white}.header a:focus-visible,.hero a:focus-visible,.hero button:focus-visible,.join a:focus-visible,.team-copy a:focus-visible{outline-color:#fff}
+.hero{display:block;height:100svh;min-height:720px;max-height:960px;text-align:center;isolation:isolate;scroll-margin-top:0}
+.hero-slide{position:absolute;inset:0;display:grid;place-items:center;opacity:0;visibility:hidden;transition:opacity 700ms var(--motion),visibility 700ms;overflow:hidden}
+.hero-slide.is-active{opacity:1;visibility:visible;z-index:1}
+.slide-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 68%;transform:scale(1.025)}
+.image-alternate{object-position:72% 75%}.slide-shade{position:absolute;inset:0;background:#000;opacity:.25}
+.hero-slide:nth-child(2) .slide-shade{opacity:.5}
+.hero .hero-content{position:relative;width:100%;max-width:1080px;padding:168px 80px 176px;margin:0 auto}
+.hero .hero-content h1,.hero .hero-content h2{font-size:96px;line-height:.98;text-transform:uppercase;margin:0 auto 32px;max-width:900px}
+.hero .hero-content h1 span,.hero .hero-content h2 span{color:#fff}
+.hero .hero-content em{font-style:normal;color:#ff7084}
+.title-line{display:block;overflow:hidden;padding-bottom:4px}
+.title-line>span{display:block}
+.hero .hero-content p{font-size:16px;line-height:24px;letter-spacing:.06em;margin-bottom:32px;color:#fff}
+.button{font-family:'Barlow Condensed',Manrope,sans-serif;font-size:18px;letter-spacing:.025em;text-transform:uppercase;border-radius:999px;padding:12px 24px;gap:32px;overflow:hidden;position:relative;isolation:isolate}
+.button:before{content:'';position:absolute;inset:0;background:#000;opacity:.12;transform:translateX(-102%);transition:transform 500ms var(--motion);z-index:-1}
+.button:hover:before{transform:translateX(0)}.button:hover{transform:none}.button svg,.text-link svg,.match-source svg,.nav-cta svg{transition:transform 500ms var(--motion)}
+.button:hover svg,.text-link:hover svg,.match-source:hover svg,.nav-cta:hover svg{transform:translateX(4px)}
+.hero-controls{position:absolute;right:32px;top:50%;transform:translateY(-50%);z-index:3;display:flex;flex-direction:column;gap:8px}
+.hero-controls[hidden]{display:none}
+.hero-controls button{border:0;background:transparent;color:#ddd;width:56px;min-height:44px;padding:8px 12px;display:flex;align-items:center;justify-content:flex-end;gap:12px;font-size:12px;font-weight:600}
+.hero-controls button:hover{color:#ff8b9a}.hero-controls button[aria-pressed=true]{color:#fff}
+.hero-controls i{display:block;background:#fff;width:16px;height:2px;transform:scaleX(.35);transform-origin:right;opacity:.4;transition:transform 500ms var(--motion),opacity 300ms var(--motion)}
+.hero-controls [aria-pressed=true] i{transform:scaleX(1);opacity:1;background:#ff7084}
+.hero-controls .hero-pause{border:1px solid #ffffff60;border-radius:50%;width:40px;height:40px;min-height:40px;padding:8px;margin:16px 0 0 auto;justify-content:center}
+.hero-pause svg{width:18px;height:18px}.hero-pause .play-icon{display:none}.hero-pause.is-paused .pause-icon{display:none}.hero-pause.is-paused .play-icon{display:block}
+.scroll-cue{position:absolute;z-index:4;bottom:104px;left:calc(50% - 24px);width:48px;height:48px;border:1px solid #ffffff70;border-radius:50%;display:grid;place-items:center;color:#fff;transition:transform 500ms var(--motion),background-color 300ms var(--motion)}
+.scroll-cue svg{transform:rotate(90deg);width:20px;height:20px}.scroll-cue:hover{color:#fff;background:var(--red);transform:translateY(4px)}
+.photo-credit{bottom:112px;right:32px;z-index:3;font-size:12px;color:#ddd}
+.hero-wave{position:absolute;bottom:-1px;left:0;width:100%;height:80px;z-index:4;fill:var(--red);stroke:none;pointer-events:none}
+.match-band{position:relative;z-index:5;background:var(--red);grid-template-columns:.9fr 1.5fr;gap:80px;padding:0 7% 16px}
+.match-intro p{font-family:'Barlow Condensed',Manrope,sans-serif;font-size:30px;line-height:36px}.match-intro p strong{font-weight:700}.match-intro a{color:#fff;font-size:14px}
+.next-game{border-radius:0;box-shadow:none;margin:0 0 32px;padding:24px 40px}.match-heading h2{font-size:24px;line-height:32px;text-transform:uppercase}.match-time b{font-family:'Barlow Condensed',Manrope,sans-serif;font-size:36px;line-height:40px}.match-team strong{font-size:14px}.match-source{font-family:'Barlow Condensed',Manrope,sans-serif;font-size:18px;text-transform:uppercase;letter-spacing:.02em}
+.section-title h2{font-size:48px;line-height:1}.schedule{padding-top:80px}.fixture{transition:background-color 300ms var(--motion)}.fixture:hover{background:#f7f7f7}.fixture-link:hover svg{transform:translateX(4px)}.fixture-link svg{transition:transform 500ms var(--motion)}
+.team-copy h2{font-size:60px;line-height:1}.team-art{background:var(--red);isolation:isolate}.team-art:before{content:'';position:absolute;inset:0;background:var(--ink);transform:scaleX(0);transform-origin:right;z-index:-1}.team-art.motion-ready:before{transform:scaleX(0);animation:flag-open 900ms var(--motion)}
+.team-art img{transition:transform 700ms var(--motion)}.team-art:hover img{transform:scale(1.04) rotate(-3deg)}.team-word{font-size:128px;line-height:.85;opacity:1;color:#fff}.team-word.bottom{font-size:128px}
+.about h2{font-size:72px;line-height:1}.home-copy h2{font-size:48px;line-height:1}.join h2{font-size:48px;line-height:1}.home-photo img{transition:transform 800ms var(--motion)}.home-photo:hover img{transform:scale(1.035)}
+.sources{font-size:14px}.footer-top .brand{font-family:Manrope,system-ui,sans-serif}.footer-top p strong{color:#fff}
+@keyframes flag-open{from{transform:scaleX(1)}to{transform:scaleX(0)}}
+@keyframes match-arrive{from{transform:translateY(32px);opacity:.3}to{transform:translateY(0);opacity:1}}
+@media(min-width:1600px){.hero{min-height:800px}.hero .hero-content h1,.hero .hero-content h2{font-size:96px}}
+@media(max-width:1100px){.header nav{gap:24px;font-size:18px}.header .nav-cta{font-size:16px;padding:12px 16px;gap:12px}.hero .hero-content{padding-left:80px;padding-right:80px}.hero .hero-content h1,.hero .hero-content h2{font-size:72px}.match-band{gap:40px;padding-left:5%;padding-right:5%}.next-game{padding:24px}.team-copy h2{font-size:48px}.team-word,.team-word.bottom{font-size:96px}}
+@media(max-width:900px) and (min-width:761px){.header .brand{font-size:18px}.header .brand img{width:48px;height:48px}.header nav{gap:16px}.header .nav-cta{font-size:14px;padding:12px}.header .brand small{font-size:12px}}
+@media(max-width:760px){.topbar{min-height:32px;font-size:12px;padding:8px 5%}.topbar a{font-size:0}.topbar b{margin:0 4px}.header{height:80px;top:32px}.site-scrolled .header{transform:translateY(-32px)}.header .brand{font-size:20px}.header .brand img{width:48px;height:48px}.header .brand small{font-size:12px}.menu{background:transparent;color:#fff;border-color:#ffffff50}.menu i,.menu i:before{background:#fff}.header nav{background:var(--ink);color:#fff;font-size:30px;gap:16px;min-height:calc(100dvh - 112px);max-height:calc(100dvh - 112px)}.site-scrolled .header nav{min-height:calc(100dvh - 80px);max-height:calc(100dvh - 80px)}.header .nav-cta{font-size:18px;justify-content:space-between;padding:16px 24px}.hero{height:94svh;min-height:660px;max-height:820px}.hero .hero-content{padding:144px 32px 176px}.hero .hero-content h1,.hero .hero-content h2{font-size:60px;line-height:.98;margin-bottom:24px}.hero .hero-content p{font-size:14px;line-height:20px;letter-spacing:0;max-width:28ch;margin:0 auto 24px}.hero-slide .slide-image{object-position:50% 70%;width:100%}.hero-slide:nth-child(3) .slide-image{object-position:65% 70%}.hero-controls{top:auto;bottom:128px;left:calc(50% - 88px);right:auto;transform:none;flex-direction:row;align-items:center;gap:4px}.hero-controls button{width:40px;padding:8px 4px;justify-content:center;gap:8px}.hero-controls i{width:12px}.hero-controls .hero-pause{margin:0 0 0 8px;width:36px;height:36px;min-height:36px}.scroll-cue{bottom:72px;width:40px;height:40px;left:calc(50% - 20px)}.hero-wave{height:48px}.photo-credit{right:16px;bottom:56px;font-size:12px}.match-band{display:flex;padding:8px 7% 24px;gap:0}.next-game{margin:0;width:100%;padding:24px}.match-heading h2{font-size:20px}.match-heading>span{font-size:12px}.match-team strong{font-size:12px}.match-time b{font-size:30px;line-height:36px}.match-source{font-size:16px}.schedule{padding-top:48px}.section-title h2{font-size:36px}.team-copy h2{font-size:48px}.team-word,.team-word.bottom{font-size:96px}.about h2{font-size:60px}.home-copy h2{font-size:36px}.join h2{font-size:36px}.button{font-size:18px}.next-game .match-teams{gap:8px}}
+@media(max-width:380px){.hero .hero-content h1,.hero .hero-content h2{font-size:48px}.hero .hero-content{padding-left:24px;padding-right:24px}.hero{min-height:640px}.header .brand{font-size:18px}.header .brand small{font-size:12px}.header .brand img{width:40px;height:40px}.next-game{padding:16px}.team-copy h2{font-size:36px}}
+@media(prefers-reduced-motion:reduce){.hero-slide{transition:opacity 200ms var(--motion)}.slide-image{transform:none!important}.hero-wave{transform:none!important}.team-art.motion-ready:before{animation:none}.team-art:hover img,.home-photo:hover img,.button:hover svg,.text-link:hover svg,.match-source:hover svg,.nav-cta:hover svg{transform:none}.hero .hero-content *{animation:none!important}.header{transition:background-color 200ms var(--motion)}.scroll-cue:hover{transform:none}.button:before{display:none}}
+.header .brand img{background:#fff;border-radius:50%;padding:4px}
+.hero-pause:disabled{opacity:.55;cursor:default}
+@media(max-width:760px){.header .brand img{padding:2px}}
+.footer-bottom{flex-wrap:wrap}.motion-toggle{font:inherit;border:0;background:transparent;color:inherit;padding:8px 0;text-decoration:underline;text-underline-offset:5px}.motion-toggle:hover{color:#fff}.motion-toggle:disabled{cursor:default;text-decoration:none;color:#ccc}
+.reduce-motion{scroll-behavior:auto}.reduce-motion .hero-slide{transition:opacity 200ms var(--motion),visibility 200ms}.reduce-motion .slide-image{transform:none!important}.reduce-motion .team-art.motion-ready:before{animation:none}.reduce-motion .team-art:hover img,.reduce-motion .home-photo:hover img,.reduce-motion .button:hover svg,.reduce-motion .text-link:hover svg,.reduce-motion .match-source:hover svg,.reduce-motion .nav-cta:hover svg,.reduce-motion .scroll-cue:hover{transform:none}.reduce-motion .button:before{display:none}.reduce-motion .header{transition:background-color 200ms var(--motion)}
+html:has(.reduce-motion){scroll-behavior:auto}
+/* Keep navigation readable if enhancement JavaScript is unavailable. */
+.header{background:var(--ink)}body:has(.hero.is-enhanced):not(.site-scrolled) .header{background:transparent}
+
+@keyframes menu-arrive{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes nav-link-arrive{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:760px){.header nav.open{animation:menu-arrive 400ms var(--motion)}.header nav.open>a{animation:nav-link-arrive 500ms var(--motion) backwards}.header nav.open>a:nth-child(2){animation-delay:60ms}.header nav.open>a:nth-child(3){animation-delay:120ms}.header nav.open>a:nth-child(4){animation-delay:180ms}.header nav.open>a:nth-child(5){animation-delay:240ms}}
+.reduce-motion .header nav,.reduce-motion .header nav>a{animation:none!important}
+@media(prefers-reduced-motion:reduce){.header nav,.header nav>a{animation:none!important}}

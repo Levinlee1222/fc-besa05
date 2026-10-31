@@ -18,11 +18,11 @@ Node.js 22 oder neuer:
 npm start
 ```
 
-Syntaxprüfung: `npm run check`.
+Syntaxprüfung: `npm run check`. Funktionstests: `npm test`.
 
 ## Inhalte pflegen
 
-- Spieltermine: `public/app.js`, Array `games`. Zeitzonenoffset für Winter `+01:00`, Sommer `+02:00`. Darstellung immer Europe/Berlin.
+- Spieltermine: `public/fixtures.js`, Array `games`. Zeitzonenoffset für Winter `+01:00`, Sommer `+02:00`. Darstellung immer Europe/Berlin.
 - Texte, Quellen und rechtliche Hinweise: `public/index.html`.
 - Gestaltung: `public/style.css`.
 - Assets: `public/assets`.
@@ -43,3 +43,14 @@ Vor öffentlichem Einsatz Logo-/Bildnutzung mit dem Verein abstimmen sowie das I
 
 Der Container läuft als Benutzer `node`, mit schreibgeschütztem Dateisystem und ohne Linux-Capabilities. Healthcheck prüft HTTP. Für öffentliche Bereitstellung TLS über einen vorgeschalteten Reverse Proxy konfigurieren. Ohne Datenbank und Buildschritt.
 
+
+## Frontend
+
+Die Gestaltung orientiert sich an der bildbetonten Vereinswebsite von Valencia CF: große Überschriften, klare Navigation und ein prominenter Spielbereich. Vereinsfarben bleiben Rot und Schwarz. Inhalte: Spiele, Mannschaft, Verein, Anfahrt und Mitmachen. Der nächste noch bevorstehende hinterlegte Termin wird anhand des Datums ausgewählt; nach Ende des hinterlegten Spielplans erscheint ein Hinweis statt eines vergangenen Spiels. Keine Shops, Ticketbuchungen oder Mitgliederportale.
+
+
+## Motion
+
+`public/motion.js` und `public/motion.css` enthalten Bildwechsel, Animationen und Navigationseffekte. Drei Titelbilder werden alle acht Sekunden gewechselt, solange der Bereich sichtbar und die Seite aktiv ist. Pause und manuelle Auswahl sind direkt am Titelbild möglich. Reduzierte Bewegung wird über die Betriebssystempräferenz oder den Footer-Schalter berücksichtigt. Die Präferenz über den Footer gilt für den aktuellen Seitenaufruf und wird nicht gespeichert.
+
+Barlow Condensed (Google Fonts, SIL OFL) ergänzt die lokal eingebundene Manrope als Sportschrift. Lizenz: `public/assets/barlow-condensed-license.txt`. Flutlicht-Symbolfoto: Abigail Keenan, https://unsplash.com/photos/8-s5QuUBtyM. Kein Foto des Vereins oder seiner Sportstätte.
